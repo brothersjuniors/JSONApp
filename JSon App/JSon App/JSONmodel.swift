@@ -9,20 +9,20 @@ import Foundation
 struct Products: Decodable {
     let maker: String
     let name: Int
-    let capa: String
-    let jan: String
+   let capa: Int
+    let jan: Int
     enum CodingKeys: CodingKey {
         case maker
         case name
-        case capa
-        case jan
+     case capa
+       case jan
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.maker = try container.decode(String.self, forKey: .maker)
         self.name = try container.decode(Int.self, forKey: .name)
-        self.capa = try container.decode(String.self, forKey: .capa)
-        self.jan = try container.decode(String.self, forKey: .jan)
+       self.capa = try container.decode(Int.self, forKey: .capa)
+        self.jan = try container.decode(Int.self, forKey: .jan)
     }
 }

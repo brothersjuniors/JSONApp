@@ -11,10 +11,10 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     var products = [Products]()
     
     @IBOutlet weak var table: UITableView!
-  
+    
     
     var decode:[Products] = []
-    let jsonUrl = URL(string: "https://script.google.com/macros/s/AKfycbwJqiqlCU2PwK_sGxgwRzaCmJDrv58RrE2knlSWQtwAJ0J_pE-fBTR7ppnx4TuHXfl-/exec")
+    let jsonUrl = URL(string: "https://script.google.com/macros/s/AKfycbzyV2oKUU8tZEncsZNJ3K7TRtAjessILPugmH8toUBIF65RWfUkYUKQvCC5SqvpcAS9/exec")
     func getJsonDataFromGoogleAppsScript()-> Void {
         var request = URLRequest(url: jsonUrl!)
         request.httpMethod = "GET"
@@ -22,8 +22,10 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
             guard let data = data else { return }
             decode = try! JSONDecoder().decode([Products].self, from: data)
             DispatchQueue.main.async { [self] in
-               self.products = products
+                self.products = products
                 self.table.reloadData()
+                
+                
             }
             
         }.resume()
@@ -33,6 +35,7 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         super.viewDidLoad()
         table.delegate = self
         table.dataSource = self
+        table.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         getJsonDataFromGoogleAppsScript()
         
     }
@@ -45,11 +48,14 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: "cell",for: indexPath)
+        let cell = table.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! ListTableViewCell
         
         
-        cell.textLabel?.text = decode[indexPath.row].name
-        cell.detailTextLabel?.text = String(decode[indexPath.row].age)
+        cell.makerLabel?.text = decode[indexPath.row].maker
+        cell.itemLabel?.text = String(decode[indexPath.row].name)
+        cell.janLabel?.text = String(decode[indexPath.row].jan)
+        cell.caoaLabel?.text = String(decode[indexPath.row].capa)
+        
         return cell
     }
     
