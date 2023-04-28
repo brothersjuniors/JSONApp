@@ -9,9 +9,10 @@ import UIKit
 import Foundation
 class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     var products = [Products]()
-    
+    private  var searching = false
+    private var searchedItem = [Products]()
     @IBOutlet weak var table: UITableView!
-    
+  //  private var data: Products!
     
     var decode:[Products] = []
     let jsonUrl = URL(string: "https://script.google.com/macros/s/AKfycbzyV2oKUU8tZEncsZNJ3K7TRtAjessILPugmH8toUBIF65RWfUkYUKQvCC5SqvpcAS9/exec")
@@ -59,6 +60,30 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
+}
+extension ViewController: UISearchResultsUpdating,UISearchBarDelegate{
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchText = searchController.searchBar.text!
+        if !searchText.isEmpty {
+            searching = true
+            searchedItem.removeAll()
+            for i in decode {
+                if i.name.lowercased().contains(searchText.lowercased()) {
+                    searchedItem.append(i)
+                }
+            }
+            table.reloadData()
+        } else {
+            searching = false
+            searchedItem.removeAll()
+        }
+        table.reloadData()
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchedItem.removeAll()
+        table.reloadData()
+    }
 }
 
 
