@@ -14,6 +14,7 @@
 		AD1D55FD29E5BAEE002B8C3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD1D55FC29E5BAEE002B8C3B /* Assets.xcassets */; };
 		AD1D560029E5BAEE002B8C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD1D55FE29E5BAEE002B8C3B /* LaunchScreen.storyboard */; };
 		AD1D560829E5BB2E002B8C3B /* JSONmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1D560729E5BB2E002B8C3B /* JSONmodel.swift */; };
+		AD22517529FB958700302536 /* BarcodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD22517429FB958700302536 /* BarcodeGenerator.swift */; };
 		AD41D23D29FAF0AE001F7E2B /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD41D23B29FAF0AE001F7E2B /* ListTableViewCell.swift */; };
 		AD41D23E29FAF0AE001F7E2B /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD41D23C29FAF0AE001F7E2B /* ListTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		AD1D55FF29E5BAEE002B8C3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD1D560129E5BAEE002B8C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD1D560729E5BB2E002B8C3B /* JSONmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONmodel.swift; sourceTree = "<group>"; };
+		AD22517429FB958700302536 /* BarcodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeGenerator.swift; sourceTree = "<group>"; };
 		AD41D23B29FAF0AE001F7E2B /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		AD41D23C29FAF0AE001F7E2B /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +74,7 @@
 				AD1D560729E5BB2E002B8C3B /* JSONmodel.swift */,
 				AD41D23B29FAF0AE001F7E2B /* ListTableViewCell.swift */,
 				AD41D23C29FAF0AE001F7E2B /* ListTableViewCell.xib */,
+				AD22517429FB958700302536 /* BarcodeGenerator.swift */,
 			);
 			path = "JSon App";
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 				AD1D560829E5BB2E002B8C3B /* JSONmodel.swift in Sources */,
 				AD1D55F429E5BAED002B8C3B /* AppDelegate.swift in Sources */,
 				AD1D55F629E5BAED002B8C3B /* SceneDelegate.swift in Sources */,
+				AD22517529FB958700302536 /* BarcodeGenerator.swift in Sources */,
 				AD41D23D29FAF0AE001F7E2B /* ListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

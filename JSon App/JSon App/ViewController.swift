@@ -8,11 +8,12 @@
 import UIKit
 import Foundation
 class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+    private var janString: String?
     var products = [Products]()
     private  var searching = false
     private var searchedItem = [Products]()
     @IBOutlet weak var table: UITableView!
-  //  private var data: Products!
+    let searchController = UISearchController(searchResultsController: nil)
     
     var decode:[Products] = []
     let jsonUrl = URL(string: "https://script.google.com/macros/s/AKfycbzyV2oKUU8tZEncsZNJ3K7TRtAjessILPugmH8toUBIF65RWfUkYUKQvCC5SqvpcAS9/exec")
@@ -37,6 +38,12 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         table.delegate = self
         table.dataSource = self
         table.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        configulation()
+        
+        
         getJsonDataFromGoogleAppsScript()
         
     }
@@ -49,15 +56,44 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var item: Products
+        if searching {
+            item = searchedItem[indexPath.row]
+            janString = searchedItem[indexPath.row].janID
+        //    cell.accessoryType = .none
+         } else {
+            item = products[indexPath.row]
+            janString = item.janID
+          //  cell.accessoryType = .detailButton
+        }
+        let image =  BarcodeGenerator.generateBarCode(from: "\(janString ?? "4902011713725")")!
+
+        
+        
+        
+        
         let cell = table.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! ListTableViewCell
-        
-        
+//
+//
         cell.makerLabel?.text = decode[indexPath.row].maker
         cell.itemLabel?.text = String(decode[indexPath.row].name)
         cell.janLabel?.text = String(decode[indexPath.row].jan)
         cell.caoaLabel?.text = String(decode[indexPath.row].capa)
-        
+
         return cell
+    }
+    //SearchBarで検索機能
+    private func configulation(){
+        searchController.loadViewIfNeeded()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.enablesReturnKeyAutomatically = false
+        searchController.searchBar.returnKeyType = UIReturnKeyType.done
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
+        searchController.searchBar.placeholder = "Search"
     }
     
 }
