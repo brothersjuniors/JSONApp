@@ -92,18 +92,50 @@
 			children = (
 				AD1D55F329E5BAED002B8C3B /* AppDelegate.swift */,
 				AD1D55F529E5BAED002B8C3B /* SceneDelegate.swift */,
-				AD1D55F729E5BAED002B8C3B /* ViewController.swift */,
-				AD1D55F929E5BAED002B8C3B /* Main.storyboard */,
+				AD2768342A0D6DDF00828DA6 /* ViewControllers */,
+				AD2768352A0D6E0000828DA6 /* storyboards */,
 				AD1D55FC29E5BAEE002B8C3B /* Assets.xcassets */,
-				AD1D55FE29E5BAEE002B8C3B /* LaunchScreen.storyboard */,
 				AD1D560129E5BAEE002B8C3B /* Info.plist */,
-				AD1D560729E5BB2E002B8C3B /* JSONmodel.swift */,
-				AD41D23B29FAF0AE001F7E2B /* ListTableViewCell.swift */,
-				AD41D23C29FAF0AE001F7E2B /* ListTableViewCell.xib */,
-				AD22517429FB958700302536 /* BarcodeGenerator.swift */,
-				AD422E1C29FC219F00B08742 /* NextViewController.swift */,
+				AD2768322A0D6DB500828DA6 /* Model */,
+				AD2768332A0D6DC400828DA6 /* Cell */,
 			);
 			path = "JSon App";
+			sourceTree = "<group>";
+		};
+		AD2768322A0D6DB500828DA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AD1D560729E5BB2E002B8C3B /* JSONmodel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AD2768332A0D6DC400828DA6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AD41D23C29FAF0AE001F7E2B /* ListTableViewCell.xib */,
+				AD41D23B29FAF0AE001F7E2B /* ListTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		AD2768342A0D6DDF00828DA6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD1D55F729E5BAED002B8C3B /* ViewController.swift */,
+				AD422E1C29FC219F00B08742 /* NextViewController.swift */,
+				AD22517429FB958700302536 /* BarcodeGenerator.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AD2768352A0D6E0000828DA6 /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AD1D55F929E5BAED002B8C3B /* Main.storyboard */,
+				AD1D55FE29E5BAEE002B8C3B /* LaunchScreen.storyboard */,
+			);
+			path = storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
